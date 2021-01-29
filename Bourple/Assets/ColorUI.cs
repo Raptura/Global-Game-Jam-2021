@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class ColorUI : MonoBehaviour
 {
-    public Image slot1, slot2, combinationSlot;
+    [SerializeField]
+    private Image slot1, slot2, combinationSlot;
 
     public Color slot1Color { get; set; }
     public Color slot2Color { get; set; }
@@ -68,14 +69,14 @@ public class ColorUI : MonoBehaviour
         }
     }
 
-    public int selectedSlot { get; set; }
+    public bool slot1Selected { get; set; }
 
     // Start is called before the first frame update
     void Start()
     {
         slot1Color = GameColors.noColor;
         slot2Color = GameColors.noColor;
-        selectedSlot = 1;
+        slot1Selected = true;
     }
 
     // Update is called once per frame
@@ -88,7 +89,7 @@ public class ColorUI : MonoBehaviour
 
     public void updateColor(Color color)
     {
-        if (selectedSlot == 1)
+        if (slot1Selected)
         {
             slot1Color = color;
         }
