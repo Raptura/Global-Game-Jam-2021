@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
 		Vector2 move = input.Player.Move.ReadValue<Vector2>();
 		horizontalMove = move.x * runSpeed;
 
-		Debug.Log(horizontalMove.ToString());
+		//Debug.Log(horizontalMove.ToString());
 
 		/*
 		if (Input.GetButtonDown("Jump"))
