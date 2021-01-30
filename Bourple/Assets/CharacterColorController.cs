@@ -24,16 +24,39 @@ public class CharacterColorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        fill.color = colorUI.activeColor;
+        fill.color = getColor(colorUI.activeColor);
     }
 
     void DropColor()
     {
-        colorUI.updateColor(GameColors.noColor);
+        colorUI.updateColor(GameColors.Colors.NoColor);
     }
 
     void SwapColorSlot()
     {
         colorUI.slot1Selected = !colorUI.slot1Selected;
+    }
+
+    public Color getColor(GameColors.Colors c)
+    {
+        switch (c)
+        {
+            case GameColors.Colors.Blue:
+                return GameColors.blue;
+            case GameColors.Colors.Red:
+                return GameColors.red;
+            case GameColors.Colors.Yellow:
+                return GameColors.yellow;
+            case GameColors.Colors.Purple:
+                return GameColors.purple;
+            case GameColors.Colors.Green:
+                return GameColors.green;
+            case GameColors.Colors.Orange:
+                return GameColors.orange;
+            case GameColors.Colors.NoColor:
+            default:
+                return GameColors.charNoColor;
+
+        }
     }
 }

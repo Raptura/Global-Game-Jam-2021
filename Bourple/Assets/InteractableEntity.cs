@@ -6,17 +6,7 @@ using UnityEngine.Tilemaps;
 [RequireComponent(typeof(Collider2D))]
 public class InteractableEntity : MonoBehaviour
 {
-    public enum EntityColor
-    {
-        NoColor,
-        Red,
-        Blue,
-        Yellow,
-        Purple,
-        Green,
-        Orange
-    }
-    public EntityColor entityColor;
+    public GameColors.Colors entityColor;
 
     public enum EntityType
     {
@@ -28,47 +18,28 @@ public class InteractableEntity : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Tilemap tilemap;
 
+    private TileBase[] outlineSet, regularSet;
+
     private ColorUI colorUI;
     private Collider2D col;
     private Collider2D playerCollider;
 
-    public Color color
-    {
-        get
-        {
-            switch (entityColor)
-            {
-                case EntityColor.Blue:
-                    return GameColors.blue;
-                case EntityColor.Yellow:
-                    return GameColors.yellow;
-                case EntityColor.Red:
-                    return GameColors.red;
-                case EntityColor.Purple:
-                    return GameColors.purple;
-                case EntityColor.Green:
-                    return GameColors.green;
-                case EntityColor.Orange:
-                    return GameColors.orange;
-                case EntityColor.NoColor:
-                default:
-                    return GameColors.noColor;
-            }
-        }
-    }
 
+    private bool _isInteractable = true;
     public bool isInteractable
     {
         get
         {
-            if (entityColor == EntityColor.NoColor)
+            return _isInteractable;
+        }
+        set
+        {
+            if (_isInteractable != value)
             {
-                return true;
+                swapTiles();
             }
-            else
-            {
-                return color == colorUI.activeColor;
-            }
+
+            _isInteractable = value;
         }
     }
 
@@ -76,7 +47,9 @@ public class InteractableEntity : MonoBehaviour
     {
         get
         {
-            return new Color(color.r, color.g, color.b, isInteractable ? 1f : 0.3f);
+            Color color = getColor(entityColor);
+            //return new Color(color.r, color.g, color.b, isInteractable ? 1f : 0.3f);
+            return getColor(entityColor);
         }
     }
 
@@ -97,11 +70,16 @@ public class InteractableEntity : MonoBehaviour
 
         col = GetComponent<Collider2D>();
         playerCollider = FindObjectOfType<CharacterColorController>().GetComponent<Collider2D>();
+        outlineSet = Resources.LoadAll<TileBase>("Environment/TilesOutline");
+        regularSet = Resources.LoadAll<TileBase>("Environment/Tiles");
+        isInteractable = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        isInteractable = (entityColor == colorUI.activeColor) || (entityColor == GameColors.Colors.NoColor);
+
         switch (entityType)
         {
             case EntityType.Object:
@@ -113,5 +91,46 @@ public class InteractableEntity : MonoBehaviour
         }
 
         Physics2D.IgnoreCollision(col, playerCollider, !isInteractable);
+    }
+
+    private Color getColor(GameColors.Colors c)
+    {
+        switch (c)
+        {
+            case GameColors.Colors.Blue:
+                return GameColors.blue;
+            case GameColors.Colors.Red:
+                return GameColors.red;
+            case GameColors.Colors.Yellow:
+                return GameColors.yellow;
+            case GameColors.Colors.Purple:
+                return GameColors.purple;
+            case GameColors.Colors.Green:
+                return GameColors.green;
+            case GameColors.Colors.Orange:
+                return GameColors.orange;
+            case GameColors.Colors.NoColor:
+            default:
+                return GameColors.bgNoColor;
+
+        }
+    }
+
+    private void swapTiles()
+    {
+        if (regularSet.Length != outlineSet.Length)
+        {
+            Debug.LogError("Issue with loading tiles! Tiles do not have same length");
+            return;
+        }
+
+        for (int i = 0; i < regularSet.Length; i++)
+        {
+            if (isInteractable)
+                tilemap.SwapTile(regularSet[i], outlineSet[i]);
+            else
+                tilemap.SwapTile(outlineSet[i], regularSet[i]);
+        }
+
     }
 }
