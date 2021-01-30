@@ -22,6 +22,7 @@ public class InteractableEntity : MonoBehaviour
     private ColorUI colorUI;
     private SpriteRenderer spriteRenderer;
     private Collider2D collider2D;
+    private Collider2D playerCollider;
 
     public Color color
     {
@@ -69,7 +70,7 @@ public class InteractableEntity : MonoBehaviour
         colorUI = FindObjectOfType<ColorUI>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         collider2D = GetComponent<Collider2D>();
-
+        playerCollider = FindObjectOfType<CharacterColorController>().GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -77,6 +78,6 @@ public class InteractableEntity : MonoBehaviour
     {
         //spriteRenderer.color = color;
         spriteRenderer.color = new Color(color.r, color.g, color.b, isInteractable ? 1f : 0.3f);
-        collider2D.enabled = isInteractable;
+        Physics2D.IgnoreCollision(collider2D, playerCollider, !isInteractable);
     }
 }
