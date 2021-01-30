@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
-
-[RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Collider2D))]
 public class InteractableEntity : MonoBehaviour
 {
@@ -19,9 +18,18 @@ public class InteractableEntity : MonoBehaviour
     }
     public EntityColor entityColor;
 
-    private ColorUI colorUI;
+    public enum EntityType
+    {
+        Object,
+        Tilemap,
+    }
+    public EntityType entityType;
+
     private SpriteRenderer spriteRenderer;
-    private Collider2D collider2D;
+    private Tilemap tilemap;
+
+    private ColorUI colorUI;
+    private Collider2D col;
     private Collider2D playerCollider;
 
     public Color color
@@ -64,20 +72,46 @@ public class InteractableEntity : MonoBehaviour
         }
     }
 
+    public Color displayColor
+    {
+        get
+        {
+            return new Color(color.r, color.g, color.b, isInteractable ? 1f : 0.3f);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         colorUI = FindObjectOfType<ColorUI>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        collider2D = GetComponent<Collider2D>();
+
+        switch (entityType)
+        {
+            case EntityType.Object:
+                spriteRenderer = GetComponent<SpriteRenderer>();
+                break;
+            case EntityType.Tilemap:
+                tilemap = GetComponent<Tilemap>();
+                break;
+        }
+
+        col = GetComponent<Collider2D>();
         playerCollider = FindObjectOfType<CharacterColorController>().GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //spriteRenderer.color = color;
-        spriteRenderer.color = new Color(color.r, color.g, color.b, isInteractable ? 1f : 0.3f);
-        Physics2D.IgnoreCollision(collider2D, playerCollider, !isInteractable);
+        switch (entityType)
+        {
+            case EntityType.Object:
+                spriteRenderer.color = displayColor;
+                break;
+            case EntityType.Tilemap:
+                tilemap.color = displayColor;
+                break;
+        }
+
+        Physics2D.IgnoreCollision(col, playerCollider, !isInteractable);
     }
 }
