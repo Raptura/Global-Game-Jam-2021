@@ -6,17 +6,7 @@ using UnityEngine.Tilemaps;
 [RequireComponent(typeof(Collider2D))]
 public class InteractableEntity : MonoBehaviour
 {
-    public enum EntityColor
-    {
-        NoColor,
-        Red,
-        Blue,
-        Yellow,
-        Purple,
-        Green,
-        Orange
-    }
-    public EntityColor entityColor;
+    public GameColors.Colors entityColor;
 
     public enum EntityType
     {
@@ -32,42 +22,17 @@ public class InteractableEntity : MonoBehaviour
     private Collider2D col;
     private Collider2D playerCollider;
 
-    public Color color
-    {
-        get
-        {
-            switch (entityColor)
-            {
-                case EntityColor.Blue:
-                    return GameColors.blue;
-                case EntityColor.Yellow:
-                    return GameColors.yellow;
-                case EntityColor.Red:
-                    return GameColors.red;
-                case EntityColor.Purple:
-                    return GameColors.purple;
-                case EntityColor.Green:
-                    return GameColors.green;
-                case EntityColor.Orange:
-                    return GameColors.orange;
-                case EntityColor.NoColor:
-                default:
-                    return GameColors.noColor;
-            }
-        }
-    }
-
     public bool isInteractable
     {
         get
         {
-            if (entityColor == EntityColor.NoColor)
+            if (entityColor == GameColors.Colors.NoColor)
             {
                 return true;
             }
             else
             {
-                return color == colorUI.activeColor;
+                return entityColor == colorUI.activeColor;
             }
         }
     }
@@ -76,6 +41,7 @@ public class InteractableEntity : MonoBehaviour
     {
         get
         {
+            Color color = getColor(entityColor);
             return new Color(color.r, color.g, color.b, isInteractable ? 1f : 0.3f);
         }
     }
@@ -113,5 +79,28 @@ public class InteractableEntity : MonoBehaviour
         }
 
         Physics2D.IgnoreCollision(col, playerCollider, !isInteractable);
+    }
+
+    private Color getColor(GameColors.Colors c)
+    {
+        switch (c)
+        {
+            case GameColors.Colors.Blue:
+                return GameColors.blue;
+            case GameColors.Colors.Red:
+                return GameColors.red;
+            case GameColors.Colors.Yellow:
+                return GameColors.yellow;
+            case GameColors.Colors.Purple:
+                return GameColors.purple;
+            case GameColors.Colors.Green:
+                return GameColors.green;
+            case GameColors.Colors.Orange:
+                return GameColors.orange;
+            case GameColors.Colors.NoColor:
+            default:
+                return GameColors.bgNoColor;
+
+        }
     }
 }

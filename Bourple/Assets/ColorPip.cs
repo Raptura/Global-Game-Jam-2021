@@ -15,20 +15,20 @@ public class ColorPip : MonoBehaviour
     }
     public ColorPipColor pipColor;
 
-    public Color color
+    public GameColors.Colors color
     {
         get
         {
             switch (pipColor)
             {
                 case ColorPipColor.Blue:
-                    return GameColors.blue;
+                    return GameColors.Colors.Blue;
                 case ColorPipColor.Yellow:
-                    return GameColors.yellow;
+                    return GameColors.Colors.Yellow;
                 case ColorPipColor.Red:
-                    return GameColors.red;
+                    return GameColors.Colors.Red;
                 default:
-                    return GameColors.noColor;
+                    return GameColors.Colors.NoColor;
             }
         }
     }
@@ -41,7 +41,7 @@ public class ColorPip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        spriteRenderer.color = color;
+        spriteRenderer.color = getColor(color);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -55,6 +55,24 @@ public class ColorPip : MonoBehaviour
             catch
             {
             }
+        }
+    }
+
+
+    private Color getColor(GameColors.Colors c)
+    {
+        switch (c)
+        {
+            case GameColors.Colors.Blue:
+                return GameColors.blue;
+            case GameColors.Colors.Red:
+                return GameColors.red;
+            case GameColors.Colors.Yellow:
+                return GameColors.yellow;
+            case GameColors.Colors.NoColor:
+            default:
+                return GameColors.charNoColor;
+
         }
     }
 }

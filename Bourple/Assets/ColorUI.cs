@@ -8,39 +8,39 @@ public class ColorUI : MonoBehaviour
     [SerializeField]
     private Image slot1, slot2, combinationSlot;
 
-    public Color slot1Color { get; set; }
-    public Color slot2Color { get; set; }
-    public Color combinationSlotColor
+    public GameColors.Colors slot1Color { get; set; }
+    public GameColors.Colors slot2Color { get; set; }
+    public GameColors.Colors combinationSlotColor
     {
         get
         {
-            if (slot1Color == GameColors.red && slot2Color == GameColors.blue
-                || slot1Color == GameColors.blue && slot2Color == GameColors.red)
+            if (slot1Color == GameColors.Colors.Red && slot2Color == GameColors.Colors.Blue
+                || slot1Color == GameColors.Colors.Blue && slot2Color == GameColors.Colors.Red)
             {
-                return GameColors.purple;
+                return GameColors.Colors.Purple;
             }
-            else if (slot1Color == GameColors.red && slot2Color == GameColors.yellow
-                || slot1Color == GameColors.yellow && slot2Color == GameColors.red)
+            else if (slot1Color == GameColors.Colors.Red && slot2Color == GameColors.Colors.Yellow
+                || slot1Color == GameColors.Colors.Yellow && slot2Color == GameColors.Colors.Red)
             {
-                return GameColors.orange;
+                return GameColors.Colors.Orange;
             }
-            else if (slot1Color == GameColors.blue && slot2Color == GameColors.yellow
-              || slot1Color == GameColors.yellow && slot2Color == GameColors.blue)
+            else if (slot1Color == GameColors.Colors.Blue && slot2Color == GameColors.Colors.Yellow
+              || slot1Color == GameColors.Colors.Yellow && slot2Color == GameColors.Colors.Blue)
             {
-                return GameColors.green;
+                return GameColors.Colors.Green;
             }
             else
             {
-                return GameColors.noColor;
+                return GameColors.Colors.NoColor;
             }
         }
     }
 
-    public Color activeColor
+    public GameColors.Colors activeColor
     {
         get
         {
-            if (combinationSlotColor != GameColors.noColor)
+            if (combinationSlotColor != GameColors.Colors.NoColor)
             {
                 return combinationSlotColor;
             }
@@ -50,24 +50,24 @@ public class ColorUI : MonoBehaviour
                 {
                     return slot1Color;
                 }
-                else if (slot1Color == GameColors.red && slot2Color == GameColors.noColor
-               || slot1Color == GameColors.noColor && slot2Color == GameColors.red)
+                else if (slot1Color == GameColors.Colors.Red && slot2Color == GameColors.Colors.NoColor
+               || slot1Color == GameColors.Colors.NoColor && slot2Color == GameColors.Colors.Red)
                 {
-                    return GameColors.red;
+                    return GameColors.Colors.Red;
                 }
-                else if (slot1Color == GameColors.yellow && slot2Color == GameColors.noColor
-                    || slot1Color == GameColors.noColor && slot2Color == GameColors.yellow)
+                else if (slot1Color == GameColors.Colors.Yellow && slot2Color == GameColors.Colors.NoColor
+                    || slot1Color == GameColors.Colors.NoColor && slot2Color == GameColors.Colors.Yellow)
                 {
-                    return GameColors.yellow;
+                    return GameColors.Colors.Yellow;
                 }
-                else if (slot1Color == GameColors.blue && slot2Color == GameColors.noColor
-                  || slot1Color == GameColors.noColor && slot2Color == GameColors.blue)
+                else if (slot1Color == GameColors.Colors.Blue && slot2Color == GameColors.Colors.NoColor
+                  || slot1Color == GameColors.Colors.NoColor && slot2Color == GameColors.Colors.Blue)
                 {
-                    return GameColors.blue;
+                    return GameColors.Colors.Blue;
                 }
                 else
                 {
-                    return GameColors.noColor;
+                    return GameColors.Colors.NoColor;
                 }
             }
         }
@@ -78,20 +78,20 @@ public class ColorUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        slot1Color = GameColors.noColor;
-        slot2Color = GameColors.noColor;
+        slot1Color = GameColors.Colors.NoColor;
+        slot2Color = GameColors.Colors.NoColor;
         slot1Selected = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        slot1.color = slot1Color;
-        slot2.color = slot2Color;
-        combinationSlot.color = combinationSlotColor;
+        slot1.color = getColor(slot1Color);
+        slot2.color = getColor(slot1Color);
+        combinationSlot.color = getColor(slot2Color);
     }
 
-    public void updateColor(Color color)
+    public void updateColor(GameColors.Colors color)
     {
         if (slot1Selected)
         {
@@ -100,6 +100,29 @@ public class ColorUI : MonoBehaviour
         else
         {
             slot2Color = color;
+        }
+    }
+
+    private Color getColor(GameColors.Colors c)
+    {
+        switch (c)
+        {
+            case GameColors.Colors.Blue:
+                return GameColors.blue;
+            case GameColors.Colors.Red:
+                return GameColors.red;
+            case GameColors.Colors.Yellow:
+                return GameColors.yellow;
+            case GameColors.Colors.Purple:
+                return GameColors.purple;
+            case GameColors.Colors.Green:
+                return GameColors.green;
+            case GameColors.Colors.Orange:
+                return GameColors.orange;
+            case GameColors.Colors.NoColor:
+            default:
+                return GameColors.charNoColor;
+
         }
     }
 }
