@@ -51,7 +51,6 @@ public class ColorPip : MonoBehaviour
             try
             {
                 FindObjectOfType<ColorUI>().updateColor(color);
-                Destroy(this.gameObject);
             }
             catch
             {

@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
 public class CharacterColorController : MonoBehaviour
 {
     private ColorUI colorUI;
-    private SpriteRenderer spriteRenderer;
+    [SerializeField]
+    private SpriteRenderer fill;
 
     private Input input;
 
@@ -14,7 +14,6 @@ public class CharacterColorController : MonoBehaviour
     void Start()
     {
         colorUI = FindObjectOfType<ColorUI>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         input = new Input();
         input.Enable();
 
@@ -25,7 +24,7 @@ public class CharacterColorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        spriteRenderer.color = colorUI.activeColor;
+        fill.color = colorUI.activeColor;
     }
 
     void DropColor()
