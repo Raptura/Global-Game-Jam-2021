@@ -71,6 +71,27 @@ TextureImporter:
   - first:
       213: -4190868439207583757
     second: Tiles_Outline_22
+  - first:
+      213: 8193072948302884924
+    second: Tiles_Outline_23
+  - first:
+      213: 3236938877938877922
+    second: Tiles_Outline_24
+  - first:
+      213: 3714471668921718395
+    second: Tiles_Outline_25
+  - first:
+      213: -2234929342125476117
+    second: Tiles_Outline_26
+  - first:
+      213: -6277843532841685120
+    second: Tiles_Outline_27
+  - first:
+      213: -4494051177366115076
+    second: Tiles_Outline_28
+  - first:
+      213: -600743275007557573
+    second: Tiles_Outline_29
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -226,7 +247,7 @@ TextureImporter:
       name: Tiles_Outline_3
       rect:
         serializedVersion: 2
-        x: 400
+        x: 300
         y: 400
         width: 100
         height: 100
@@ -247,8 +268,8 @@ TextureImporter:
       name: Tiles_Outline_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 300
+        x: 400
+        y: 400
         width: 100
         height: 100
       alignment: 0
@@ -268,8 +289,8 @@ TextureImporter:
       name: Tiles_Outline_5
       rect:
         serializedVersion: 2
-        x: 200
-        y: 300
+        x: 500
+        y: 400
         width: 100
         height: 100
       alignment: 0
@@ -289,7 +310,7 @@ TextureImporter:
       name: Tiles_Outline_6
       rect:
         serializedVersion: 2
-        x: 400
+        x: 0
         y: 300
         width: 100
         height: 100
@@ -310,8 +331,8 @@ TextureImporter:
       name: Tiles_Outline_7
       rect:
         serializedVersion: 2
-        x: 0
-        y: 200
+        x: 100
+        y: 300
         width: 100
         height: 100
       alignment: 0
@@ -331,8 +352,8 @@ TextureImporter:
       name: Tiles_Outline_8
       rect:
         serializedVersion: 2
-        x: 100
-        y: 200
+        x: 200
+        y: 300
         width: 100
         height: 100
       alignment: 0
@@ -352,8 +373,8 @@ TextureImporter:
       name: Tiles_Outline_9
       rect:
         serializedVersion: 2
-        x: 200
-        y: 200
+        x: 300
+        y: 300
         width: 100
         height: 100
       alignment: 0
@@ -374,7 +395,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 400
-        y: 200
+        y: 300
         width: 100
         height: 100
       alignment: 0
@@ -394,8 +415,8 @@ TextureImporter:
       name: Tiles_Outline_11
       rect:
         serializedVersion: 2
-        x: 100
-        y: 100
+        x: 500
+        y: 300
         width: 100
         height: 100
       alignment: 0
@@ -415,8 +436,8 @@ TextureImporter:
       name: Tiles_Outline_12
       rect:
         serializedVersion: 2
-        x: 200
-        y: 100
+        x: 0
+        y: 200
         width: 100
         height: 100
       alignment: 0
@@ -436,8 +457,8 @@ TextureImporter:
       name: Tiles_Outline_13
       rect:
         serializedVersion: 2
-        x: 300
-        y: 100
+        x: 100
+        y: 200
         width: 100
         height: 100
       alignment: 0
@@ -457,8 +478,8 @@ TextureImporter:
       name: Tiles_Outline_14
       rect:
         serializedVersion: 2
-        x: 500
-        y: 100
+        x: 200
+        y: 200
         width: 100
         height: 100
       alignment: 0
@@ -478,8 +499,8 @@ TextureImporter:
       name: Tiles_Outline_15
       rect:
         serializedVersion: 2
-        x: 100
-        y: 0
+        x: 300
+        y: 200
         width: 100
         height: 100
       alignment: 0
@@ -499,8 +520,8 @@ TextureImporter:
       name: Tiles_Outline_16
       rect:
         serializedVersion: 2
-        x: 200
-        y: 0
+        x: 400
+        y: 200
         width: 100
         height: 100
       alignment: 0
@@ -520,8 +541,8 @@ TextureImporter:
       name: Tiles_Outline_17
       rect:
         serializedVersion: 2
-        x: 300
-        y: 0
+        x: 500
+        y: 200
         width: 100
         height: 100
       alignment: 0
@@ -541,8 +562,8 @@ TextureImporter:
       name: Tiles_Outline_18
       rect:
         serializedVersion: 2
-        x: 400
-        y: 0
+        x: 0
+        y: 100
         width: 100
         height: 100
       alignment: 0
@@ -562,8 +583,8 @@ TextureImporter:
       name: Tiles_Outline_19
       rect:
         serializedVersion: 2
-        x: 500
-        y: 0
+        x: 100
+        y: 100
         width: 100
         height: 100
       alignment: 0
@@ -575,6 +596,216 @@ TextureImporter:
       bones: []
       spriteID: bb5b73f33d8b28910800000000000000
       internalID: 1838234815358809531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Outline_20
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c03e51135c2d49830800000000000000
+      internalID: 4077115307051049740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Outline_21
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d25c5eefde75c5490800000000000000
+      internalID: -7756227778543499987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Outline_22
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ffd2a4db5b07d5c0800000000000000
+      internalID: -4190868439207583757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Outline_23
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c30b47e0074a3b170800000000000000
+      internalID: 8193072948302884924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Outline_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e5c23b62caebec20800000000000000
+      internalID: 3236938877938877922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Outline_25
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b76d4528d447c8330800000000000000
+      internalID: 3714471668921718395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Outline_26
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be67380ca9febf0e0800000000000000
+      internalID: -2234929342125476117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Outline_27
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08fec7d719e90e8a0800000000000000
+      internalID: -6277843532841685120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Outline_28
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfcaaa2c34ce1a1c0800000000000000
+      internalID: -4494051177366115076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Outline_29
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3048fb9c2bb9a7f0800000000000000
+      internalID: -600743275007557573
       vertices: []
       indices: 
       edges: []
