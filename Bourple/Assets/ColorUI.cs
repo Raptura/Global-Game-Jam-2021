@@ -87,8 +87,22 @@ public class ColorUI : MonoBehaviour
     void Update()
     {
         slot1.color = getColor(slot1Color);
-        slot2.color = getColor(slot1Color);
-        combinationSlot.color = getColor(slot2Color);
+        slot2.color = getColor(slot2Color);
+        combinationSlot.color = getColor(combinationSlotColor);
+
+
+        var smallScale = new Vector2(0.5f, 0.5f);
+        var selectedScale = new Vector2(1, 1);
+        if (slot1Selected)
+        {
+            slot1.rectTransform.localScale = selectedScale;
+            slot2.rectTransform.localScale = smallScale;
+        }
+        else
+        {
+            slot2.rectTransform.localScale = selectedScale;
+            slot1.rectTransform.localScale = smallScale;
+        }
     }
 
     public void updateColor(GameColors.Colors color)
