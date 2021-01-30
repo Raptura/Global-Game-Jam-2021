@@ -18,22 +18,28 @@ public class InteractableEntity : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Tilemap tilemap;
 
+    private TileBase[] outlineSet, regularSet;
+
     private ColorUI colorUI;
     private Collider2D col;
     private Collider2D playerCollider;
 
+
+    private bool _isInteractable = true;
     public bool isInteractable
     {
         get
         {
-            if (entityColor == GameColors.Colors.NoColor)
+            return _isInteractable;
+        }
+        set
+        {
+            if (_isInteractable != value)
             {
-                return true;
+                swapTiles();
             }
-            else
-            {
-                return entityColor == colorUI.activeColor;
-            }
+
+            _isInteractable = value;
         }
     }
 
@@ -42,7 +48,8 @@ public class InteractableEntity : MonoBehaviour
         get
         {
             Color color = getColor(entityColor);
-            return new Color(color.r, color.g, color.b, isInteractable ? 1f : 0.3f);
+            //return new Color(color.r, color.g, color.b, isInteractable ? 1f : 0.3f);
+            return getColor(entityColor);
         }
     }
 
@@ -63,11 +70,16 @@ public class InteractableEntity : MonoBehaviour
 
         col = GetComponent<Collider2D>();
         playerCollider = FindObjectOfType<CharacterColorController>().GetComponent<Collider2D>();
+        outlineSet = Resources.LoadAll<TileBase>("Environment/TilesOutline");
+        regularSet = Resources.LoadAll<TileBase>("Environment/Tiles");
+        isInteractable = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        isInteractable = (entityColor == colorUI.activeColor) || (entityColor == GameColors.Colors.NoColor);
+
         switch (entityType)
         {
             case EntityType.Object:
@@ -102,5 +114,23 @@ public class InteractableEntity : MonoBehaviour
                 return GameColors.bgNoColor;
 
         }
+    }
+
+    private void swapTiles()
+    {
+        if (regularSet.Length != outlineSet.Length)
+        {
+            Debug.LogError("Issue with loading tiles! Tiles do not have same length");
+            return;
+        }
+
+        for (int i = 0; i < regularSet.Length; i++)
+        {
+            if (isInteractable)
+                tilemap.SwapTile(regularSet[i], outlineSet[i]);
+            else
+                tilemap.SwapTile(outlineSet[i], regularSet[i]);
+        }
+
     }
 }
