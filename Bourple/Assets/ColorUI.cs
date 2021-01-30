@@ -46,7 +46,11 @@ public class ColorUI : MonoBehaviour
             }
             else
             {
-                if (slot1Color == GameColors.red && slot2Color == GameColors.noColor
+                if (slot1Color == slot2Color)
+                {
+                    return slot1Color;
+                }
+                else if (slot1Color == GameColors.red && slot2Color == GameColors.noColor
                || slot1Color == GameColors.noColor && slot2Color == GameColors.red)
                 {
                     return GameColors.red;
