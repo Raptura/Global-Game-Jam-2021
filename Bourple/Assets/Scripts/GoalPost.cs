@@ -6,18 +6,14 @@ public class GoalPost : MonoBehaviour
     private ColorUI colorUI;
     [SerializeField]
     private GameColors.Colors goal;
-    [SerializeField]
-    private string nextLevel;
-    private SpriteRenderer sr;
+    [SerializeField] private SpriteRenderer fillSR;
     private ColorPip pip;
-    [SerializeField]
     private ColorPip ui_pip;
     private Animator anim;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
-        sr = GetComponent<SpriteRenderer>();
         colorUI = FindObjectOfType<ColorUI>();
         pip = transform.GetChild(0).GetComponent<ColorPip>();
         pip.color = goal;
@@ -39,14 +35,14 @@ public class GoalPost : MonoBehaviour
     void FinishLevel()
     {
         anim.Play("Goal_Happy");
-        sr.color = getColor(goal);
+        fillSR.color = getColor(goal);
         colorUI.clearColor();
         AudioManager.instance.finish.PlayOneShot(AudioManager.instance.finish.clip);
     }
 
     void GoToNextLevel()
     {
-        SceneManager.LoadScene(nextLevel);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public Color getColor(GameColors.Colors c)

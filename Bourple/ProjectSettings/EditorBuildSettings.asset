@@ -15,18 +15,27 @@ EditorBuildSettings:
     path: Assets/Scenes/Playable Levels/Level 2.unity
     guid: 82d56bc48cf967f42a18929d87c6abd9
   - enabled: 1
-    path: Assets/Scenes/Playable Levels/Level 3.unity
-    guid: 2a11dd8d8a1a5984e99f85fa6cc7ef2f
+    path: Assets/Scenes/Playable Levels/Level 9.unity
+    guid: 0b3d8f6747bad0743ba88bfd847defba
+  - enabled: 1
+    path: Assets/Scenes/Playable Levels/Level 7.unity
+    guid: ca2ed346771adb849bfef51cb2af1ae1
   - enabled: 1
     path: Assets/Scenes/Playable Levels/Level 4.unity
     guid: f40b4d12cc0f554439c6f32580eec98d
   - enabled: 1
-    path: Assets/Scenes/Playable Levels/Level 5.unity
-    guid: cb9e95d0992002e4b8ee50a4ec87de9c
+    path: Assets/Scenes/Playable Levels/Level 3.unity
+    guid: 2a11dd8d8a1a5984e99f85fa6cc7ef2f
+  - enabled: 1
+    path: Assets/Scenes/Playable Levels/Level 10.unity
+    guid: c7489b5af2648b749bd98ee3662693ec
   - enabled: 1
     path: Assets/Scenes/Playable Levels/Level 6.unity
     guid: c65b90c2c3759c24aaef5cd5a9fe32dc
   - enabled: 1
-    path: Assets/Scenes/Test.unity
-    guid: 5c519bc0f5191dd438e231e36b8f6e42
+    path: Assets/Scenes/Playable Levels/Level 8.unity
+    guid: a35845159ce89aa408f0f36ca77da2fe
+  - enabled: 1
+    path: Assets/Scenes/Playable Levels/Level 5.unity
+    guid: cb9e95d0992002e4b8ee50a4ec87de9c
   m_configObjects: {}
