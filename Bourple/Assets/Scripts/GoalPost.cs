@@ -41,6 +41,7 @@ public class GoalPost : MonoBehaviour
         anim.Play("Goal_Happy");
         sr.color = getColor(goal);
         colorUI.clearColor();
+        AudioManager.instance.finish.PlayOneShot(AudioManager.instance.finish.clip);
     }
 
     void GoToNextLevel()

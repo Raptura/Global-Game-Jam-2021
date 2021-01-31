@@ -140,7 +140,7 @@ public class ColorUI : MonoBehaviour
         }
     }
 
-    public void updateColor(GameColors.Colors color)
+    public void updateColor(GameColors.Colors color, bool pickingUp = false)
     {
 
         if (color == GameColors.Colors.Green)
@@ -170,6 +170,9 @@ public class ColorUI : MonoBehaviour
             }
 
         }
+
+        if (pickingUp)
+            AudioManager.instance.pickup.PlayOneShot(AudioManager.instance.pickup.clip);
     }
 
     public void clearColor()

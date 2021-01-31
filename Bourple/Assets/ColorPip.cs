@@ -37,7 +37,7 @@ public class ColorPip : MonoBehaviour
         {
             try
             {
-                FindObjectOfType<ColorUI>().updateColor(color);
+                FindObjectOfType<ColorUI>().updateColor(color, true);
             }
             catch
             {

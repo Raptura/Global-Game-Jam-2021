@@ -29,13 +29,24 @@ public class CharacterColorController : MonoBehaviour
 
     void DropColor()
     {
+        if (colorUI.slot1Selected && colorUI.slot1Color != GameColors.Colors.NoColor)
+            AudioManager.instance.drop.PlayOneShot(AudioManager.instance.drop.clip);
+
+        if (!colorUI.slot1Selected && colorUI.slot2Color != GameColors.Colors.NoColor)
+            AudioManager.instance.drop.PlayOneShot(AudioManager.instance.drop.clip);
+
         colorUI.updateColor(GameColors.Colors.NoColor);
-        AudioManager.instance.drop.Play();
+
     }
 
     void SwapColorSlot()
     {
         colorUI.slot1Selected = !colorUI.slot1Selected;
+        if (colorUI.slot1Selected)
+            AudioManager.instance.swapA.PlayOneShot(AudioManager.instance.swapA.clip);
+        else
+            AudioManager.instance.swapB.PlayOneShot(AudioManager.instance.swapB.clip);
+
     }
 
     public Color getColor(GameColors.Colors c)

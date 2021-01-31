@@ -151,10 +151,15 @@ public class CharacterController2D : MonoBehaviour
             if (Mathf.Abs(m_Rigidbody2D.velocity.x) > 0.1f)
             {
                 animator.SetBool("IsRunning", true);
+
+                if (!AudioManager.instance.run.isPlaying && m_Grounded)
+                    AudioManager.instance.run.Play();
             }
             else
             {
                 animator.SetBool("IsRunning", false);
+                AudioManager.instance.run.Stop();
+
             }
 
 
@@ -186,10 +191,19 @@ public class CharacterController2D : MonoBehaviour
             // Add a vertical force to the player.
             m_Grounded = false;
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+            AudioManager.instance.jump.PlayOneShot(AudioManager.instance.jump.clip);
         }
 
         animator.SetBool("OnGround", m_Grounded);
         animator.SetBool("IsPushing", m_Pushing && animator.GetBool("IsRunning"));
+
+        if (animator.GetBool("IsPushing") && !AudioManager.instance.push.isPlaying) {
+            AudioManager.instance.push.Play();
+        }
+        if (!animator.GetBool("IsPushing") && AudioManager.instance.push.isPlaying)
+        {
+            AudioManager.instance.push.Stop();
+        }
     }
 
 
