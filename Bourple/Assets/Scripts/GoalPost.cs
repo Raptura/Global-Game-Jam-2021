@@ -1,11 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GoalPost : MonoBehaviour
 {
     private ColorUI colorUI;
-    public GameColors.Colors goal;
+    [SerializeField]
+    private GameColors.Colors goal;
+    [SerializeField]
+    private string nextLevel;
     private SpriteRenderer sr;
     private ColorPip pip;
     private Animator anim;
@@ -25,6 +27,7 @@ public class GoalPost : MonoBehaviour
             if (colorUI.activeColor == goal)
             {
                 FinishLevel();
+                Invoke("GoToNextLevel", 3);
             }
         }
     }
@@ -34,6 +37,11 @@ public class GoalPost : MonoBehaviour
         anim.Play("Goal_Happy");
         sr.color = getColor(goal);
         colorUI.updateColor(GameColors.Colors.NoColor);
+    }
+
+    void GoToNextLevel()
+    {
+        SceneManager.LoadScene(nextLevel);
     }
 
     public Color getColor(GameColors.Colors c)

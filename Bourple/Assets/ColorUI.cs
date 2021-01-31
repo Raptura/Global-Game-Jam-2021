@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class ColorUI : MonoBehaviour
 {
     [SerializeField]
-    private Image slot1, slot2, combinationSlot;
+    private Image slot1Jar, slot1, slot1Fill, slot2Jar, slot2, slot2Fill, combinationSlot;
+    [SerializeField]
+    private Sprite jarOpen, jarClosed;
 
     public GameColors.Colors slot1Color { get; set; }
     public GameColors.Colors slot2Color { get; set; }
@@ -87,21 +89,54 @@ public class ColorUI : MonoBehaviour
     void Update()
     {
         slot1.color = getColor(slot1Color);
+        slot1Fill.color = slot1.color;
         slot2.color = getColor(slot2Color);
-        combinationSlot.color = getColor(combinationSlotColor);
+        slot2Fill.color = slot2.color;
+        combinationSlot.color = getColor(activeColor);
 
-
-        var smallScale = new Vector2(0.5f, 0.5f);
-        var selectedScale = new Vector2(1, 1);
-        if (slot1Selected)
+        if (slot1Color == GameColors.Colors.NoColor)
         {
-            slot1.rectTransform.localScale = selectedScale;
-            slot2.rectTransform.localScale = smallScale;
+            slot1.gameObject.SetActive(false);
+            slot1Fill.gameObject.SetActive(false);
         }
         else
         {
-            slot2.rectTransform.localScale = selectedScale;
-            slot1.rectTransform.localScale = smallScale;
+            slot1.gameObject.SetActive(true);
+            slot1Fill.gameObject.SetActive(true);
+        }
+
+        if (slot2Color == GameColors.Colors.NoColor)
+        {
+            slot2.gameObject.SetActive(false);
+            slot2Fill.gameObject.SetActive(false);
+            
+        }
+        else
+        {
+            slot2.gameObject.SetActive(true);
+            slot2Fill.gameObject.SetActive(true);
+        }
+
+
+        if (slot1Selected)
+        {
+            slot1Jar.sprite = jarOpen;
+            slot2Jar.sprite = jarClosed;
+
+            slot1Jar.transform.SetSiblingIndex(1);
+            slot1.transform.SetSiblingIndex(2);
+            slot2Jar.transform.SetSiblingIndex(2);
+            slot2.transform.SetSiblingIndex(1);
+        }
+        else
+        {
+            slot2Jar.sprite = jarOpen;
+            slot1Jar.sprite = jarClosed;
+            slot1Jar.transform.SetSiblingIndex(2);
+            slot1.transform.SetSiblingIndex(1);
+            slot2Jar.transform.SetSiblingIndex(1);
+            slot2.transform.SetSiblingIndex(2);
+
         }
     }
 
