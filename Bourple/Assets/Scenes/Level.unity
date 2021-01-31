@@ -1630,7 +1630,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1108307178}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.2, y: 0, z: 0}
+  m_LocalPosition: {x: 43.9, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1075715868}
@@ -2853,6 +2853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56924e0a385e62e468a5e4c063823774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  duplicateAmount: 20
   backgrounds:
   - {fileID: 2020015321}
   - {fileID: 2123512406}
@@ -3394,6 +3395,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entityColor: 0
   entityType: 1
+  outlineSprite: {fileID: 0}
+  enabledSprite: {fileID: 0}
 --- !u!1 &2123512405
 GameObject:
   m_ObjectHideFlags: 0
