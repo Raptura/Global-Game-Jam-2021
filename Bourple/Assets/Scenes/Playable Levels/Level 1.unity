@@ -2156,6 +2156,71 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5987885540866233971, guid: 9a2ac0be86e5d524b89efe5dc73b9f85,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5987885540866233971, guid: 9a2ac0be86e5d524b89efe5dc73b9f85,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5987885540866233971, guid: 9a2ac0be86e5d524b89efe5dc73b9f85,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5987885540866233971, guid: 9a2ac0be86e5d524b89efe5dc73b9f85,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5987885540866233971, guid: 9a2ac0be86e5d524b89efe5dc73b9f85,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 123
+      objectReference: {fileID: 0}
+    - target: {fileID: 5987885540866233971, guid: 9a2ac0be86e5d524b89efe5dc73b9f85,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 7158626800820609967, guid: 9a2ac0be86e5d524b89efe5dc73b9f85,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7158626800820609967, guid: 9a2ac0be86e5d524b89efe5dc73b9f85,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7158626800820609967, guid: 9a2ac0be86e5d524b89efe5dc73b9f85,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7158626800820609967, guid: 9a2ac0be86e5d524b89efe5dc73b9f85,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7158626800820609967, guid: 9a2ac0be86e5d524b89efe5dc73b9f85,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 150.34387
+      objectReference: {fileID: 0}
+    - target: {fileID: 7158626800820609967, guid: 9a2ac0be86e5d524b89efe5dc73b9f85,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -89
+      objectReference: {fileID: 0}
+    - target: {fileID: 7158626800820609967, guid: 9a2ac0be86e5d524b89efe5dc73b9f85,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 91.3
+      objectReference: {fileID: 0}
     - target: {fileID: 8861572201239067240, guid: 9a2ac0be86e5d524b89efe5dc73b9f85,
         type: 3}
       propertyPath: m_Pivot.x
