@@ -84,7 +84,7 @@ public class CharacterController2D : MonoBehaviour
         Collider2D[] boxes = Physics2D.OverlapCircleAll(m_BoxCheck.position, k_PushingRadius);
         for (int i = 0; i < boxes.Length; i++)
         {
-            if (boxes[i].gameObject.CompareTag("Box"))
+            if (boxes[i].gameObject.CompareTag("Box") && boxes[i].gameObject.GetComponent<InteractableEntity>().isInteractable)
             {
                 m_Pushing = true;
             }
