@@ -49,6 +49,14 @@ public class @Input : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Reset"",
+                    ""type"": ""Button"",
+                    ""id"": ""d0fe1e1c-9871-4e9d-90bc-d3defb21833f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -183,6 +191,17 @@ public class @Input : IInputActionCollection, IDisposable
                     ""action"": ""Drop Color"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d87c116e-dc0e-4d98-af8e-db4eefaa1de7"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -256,6 +275,7 @@ public class @Input : IInputActionCollection, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_SwapColor = m_Player.FindAction("Swap Color", throwIfNotFound: true);
         m_Player_DropColor = m_Player.FindAction("Drop Color", throwIfNotFound: true);
+        m_Player_Reset = m_Player.FindAction("Reset", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -309,6 +329,7 @@ public class @Input : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_SwapColor;
     private readonly InputAction m_Player_DropColor;
+    private readonly InputAction m_Player_Reset;
     public struct PlayerActions
     {
         private @Input m_Wrapper;
@@ -317,6 +338,7 @@ public class @Input : IInputActionCollection, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @SwapColor => m_Wrapper.m_Player_SwapColor;
         public InputAction @DropColor => m_Wrapper.m_Player_DropColor;
+        public InputAction @Reset => m_Wrapper.m_Player_Reset;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -338,6 +360,9 @@ public class @Input : IInputActionCollection, IDisposable
                 @DropColor.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDropColor;
                 @DropColor.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDropColor;
                 @DropColor.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDropColor;
+                @Reset.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReset;
+                @Reset.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReset;
+                @Reset.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReset;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -354,6 +379,9 @@ public class @Input : IInputActionCollection, IDisposable
                 @DropColor.started += instance.OnDropColor;
                 @DropColor.performed += instance.OnDropColor;
                 @DropColor.canceled += instance.OnDropColor;
+                @Reset.started += instance.OnReset;
+                @Reset.performed += instance.OnReset;
+                @Reset.canceled += instance.OnReset;
             }
         }
     }
@@ -409,5 +437,6 @@ public class @Input : IInputActionCollection, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnSwapColor(InputAction.CallbackContext context);
         void OnDropColor(InputAction.CallbackContext context);
+        void OnReset(InputAction.CallbackContext context);
     }
 }
