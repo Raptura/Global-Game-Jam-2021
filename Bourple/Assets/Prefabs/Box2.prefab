@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1436913541651372239}
   - component: {fileID: 1436913541651372232}
   - component: {fileID: 1436913541651372233}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Box2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,3 +146,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entityColor: 0
   entityType: 0
+  outlineSprite: {fileID: 21300000, guid: 0c9f187c7dd025042ac4c74c78d57db0, type: 3}
+  enabledSprite: {fileID: 21300000, guid: 041519031ee7e384282725921d35a474, type: 3}

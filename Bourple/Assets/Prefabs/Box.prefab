@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f83d457c78c48fb4d8971408bd774305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entityColor: 2
+  entityColor: 0
   entityType: 0
   outlineSprite: {fileID: 21300000, guid: 153be9c40c9e3cd44954e28dc839d5ec, type: 3}
   enabledSprite: {fileID: 21300000, guid: be27b940aaa402147ba890f09fb99b43, type: 3}
