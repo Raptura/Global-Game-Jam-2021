@@ -290,10 +290,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 829da927f7bca3a4d9c0871ca922e2be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platform: {fileID: 806523447}
+  platform: {fileID: 806523451}
   a: {fileID: 876048169}
   b: {fileID: 927902731}
   speed: 2
+  delayTime: 0
+  waitForPlayer: 0
 --- !u!4 &198113427
 Transform:
   m_ObjectHideFlags: 0
@@ -340,10 +342,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 829da927f7bca3a4d9c0871ca922e2be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platform: {fileID: 421687730}
+  platform: {fileID: 421687734}
   a: {fileID: 1453784041}
   b: {fileID: 1376342630}
   speed: 2
+  delayTime: 0
+  waitForPlayer: 0
 --- !u!4 &209367412
 Transform:
   m_ObjectHideFlags: 0
@@ -373,6 +377,7 @@ GameObject:
   - component: {fileID: 421687733}
   - component: {fileID: 421687732}
   - component: {fileID: 421687731}
+  - component: {fileID: 421687734}
   m_Layer: 6
   m_Name: Platform
   m_TagString: Platform
@@ -487,6 +492,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &421687734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421687729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48d6a63115e7664baaa769e0c6a59e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &566505587
 GameObject:
   m_ObjectHideFlags: 3
@@ -692,6 +709,7 @@ GameObject:
   - component: {fileID: 806523450}
   - component: {fileID: 806523449}
   - component: {fileID: 806523448}
+  - component: {fileID: 806523451}
   m_Layer: 6
   m_Name: Platform
   m_TagString: Platform
@@ -806,6 +824,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &806523451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806523446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48d6a63115e7664baaa769e0c6a59e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &876048168
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,10 +1248,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 829da927f7bca3a4d9c0871ca922e2be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platform: {fileID: 1638750824}
+  platform: {fileID: 1638750828}
   a: {fileID: 1798489453}
   b: {fileID: 766962408}
   speed: 3
+  delayTime: 0
+  waitForPlayer: 0
 --- !u!4 &1490191517
 Transform:
   m_ObjectHideFlags: 0
@@ -1251,6 +1283,7 @@ GameObject:
   - component: {fileID: 1638750827}
   - component: {fileID: 1638750826}
   - component: {fileID: 1638750825}
+  - component: {fileID: 1638750828}
   m_Layer: 6
   m_Name: Platform
   m_TagString: Platform
@@ -1365,6 +1398,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1638750828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638750823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48d6a63115e7664baaa769e0c6a59e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1798489452
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,10 +1605,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 829da927f7bca3a4d9c0871ca922e2be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platform: {fileID: 635706950353599183}
+  platform: {fileID: 635706950353599185}
   a: {fileID: 635706950598540432}
   b: {fileID: 635706949122248193}
   speed: 2
+  delayTime: 0
+  waitForPlayer: 0
 --- !u!4 &635706949089672694
 Transform:
   m_ObjectHideFlags: 0
@@ -1700,6 +1747,7 @@ GameObject:
   - component: {fileID: 635706950353599180}
   - component: {fileID: 635706950353599181}
   - component: {fileID: 635706950353599184}
+  - component: {fileID: 635706950353599185}
   m_Layer: 6
   m_Name: Platform
   m_TagString: Platform
@@ -1737,6 +1785,18 @@ MonoBehaviour:
   entityType: 0
   outlineSprite: {fileID: 21300000, guid: 83f1389ba8136474a96dddf84103f21f, type: 3}
   enabledSprite: {fileID: 21300000, guid: 7a1a8be189fd13d4f86ffe1995108871, type: 3}
+--- !u!114 &635706950353599185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635706950353599182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48d6a63115e7664baaa769e0c6a59e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &635706950598540432
 Transform:
   m_ObjectHideFlags: 0

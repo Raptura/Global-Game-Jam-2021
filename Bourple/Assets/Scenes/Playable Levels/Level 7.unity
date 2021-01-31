@@ -651,6 +651,7 @@ GameObject:
   - component: {fileID: 1958103601}
   - component: {fileID: 1958103600}
   - component: {fileID: 1958103599}
+  - component: {fileID: 1958103602}
   m_Layer: 6
   m_Name: Platform
   m_TagString: Platform
@@ -765,6 +766,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1958103602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958103597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48d6a63115e7664baaa769e0c6a59e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!58 &1996769453
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -810,11 +823,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 829da927f7bca3a4d9c0871ca922e2be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platform: {fileID: 1958103598}
+  platform: {fileID: 1958103602}
   a: {fileID: 1765548985}
   b: {fileID: 1669828640}
   speed: 3
-  delayTime: 4
+  delayTime: 2
+  waitForPlayer: 0
 --- !u!4 &2046982409
 Transform:
   m_ObjectHideFlags: 0
@@ -26692,11 +26706,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 829da927f7bca3a4d9c0871ca922e2be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platform: {fileID: 3186885191526295748}
+  platform: {fileID: 3186885191526295752}
   a: {fileID: 3186885191752625819}
   b: {fileID: 3186885190544776202}
   speed: 3
   delayTime: 4
+  waitForPlayer: 0
 --- !u!4 &3186885190544776202
 Transform:
   m_ObjectHideFlags: 0
@@ -26705,7 +26720,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3186885190544776203}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 25, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3186885190510096381}
@@ -26753,6 +26768,7 @@ GameObject:
   - component: {fileID: 3186885191526295751}
   - component: {fileID: 3186885191526295750}
   - component: {fileID: 2659493399672001033}
+  - component: {fileID: 3186885191526295752}
   m_Layer: 6
   m_Name: Platform
   m_TagString: Platform
@@ -26837,6 +26853,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3186885191526295752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3186885191526295749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48d6a63115e7664baaa769e0c6a59e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3186885191752625816
 GameObject:
   m_ObjectHideFlags: 0
@@ -26861,7 +26889,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3186885191752625816}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25, y: 8, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3186885190510096381}
