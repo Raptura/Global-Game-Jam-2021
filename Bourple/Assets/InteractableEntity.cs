@@ -11,7 +11,8 @@ public class InteractableEntity : MonoBehaviour
     public enum EntityType
     {
         Object,
-        Tilemap,
+        EnvironmentTiles,
+        Spikes
     }
     public EntityType entityType;
 
@@ -39,13 +40,19 @@ public class InteractableEntity : MonoBehaviour
         {
             if (_isInteractable != value)
             {
-                if (entityType == EntityType.Tilemap)
-                    swapTiles();
-                else if (entityType == EntityType.Object)
-                    swapSprite();
-            }
+                switch (entityType)
+                {
+                    case EntityType.Object:
+                        swapSprite();
+                        break;
+                    case EntityType.EnvironmentTiles:
+                    case EntityType.Spikes:
+                        swapTiles();
+                        break;
+                }
 
-            _isInteractable = value;
+                _isInteractable = value;
+            }
         }
     }
 
@@ -69,15 +76,16 @@ public class InteractableEntity : MonoBehaviour
             case EntityType.Object:
                 spriteRenderer = GetComponent<SpriteRenderer>();
                 break;
-            case EntityType.Tilemap:
+            case EntityType.Spikes:
+            case EntityType.EnvironmentTiles:
                 tilemap = GetComponent<Tilemap>();
                 break;
         }
 
         col = GetComponent<Collider2D>();
         playerCollider = FindObjectOfType<CharacterColorController>().GetComponent<Collider2D>();
-        outlineSet = Resources.LoadAll<TileBase>("Environment/TilesOutline");
-        regularSet = Resources.LoadAll<TileBase>("Environment/Tiles");
+        loadTiles();
+
         isInteractable = true;
     }
 
@@ -91,7 +99,8 @@ public class InteractableEntity : MonoBehaviour
             case EntityType.Object:
                 spriteRenderer.color = displayColor;
                 break;
-            case EntityType.Tilemap:
+            case EntityType.EnvironmentTiles:
+            case EntityType.Spikes:
                 tilemap.color = displayColor;
                 break;
         }
@@ -149,5 +158,20 @@ public class InteractableEntity : MonoBehaviour
             spriteRenderer.sprite = enabledSprite;
         }
 
+    }
+
+    private void loadTiles()
+    {
+        switch (entityType)
+        {
+            case EntityType.EnvironmentTiles:
+                outlineSet = Resources.LoadAll<TileBase>("Environment/TilesOutline");
+                regularSet = Resources.LoadAll<TileBase>("Environment/Tiles");
+                break;
+            case EntityType.Spikes:
+                outlineSet = Resources.LoadAll<TileBase>("Environment/SpikesOutline");
+                regularSet = Resources.LoadAll<TileBase>("Environment/Spikes");
+                break;
+        }
     }
 }
