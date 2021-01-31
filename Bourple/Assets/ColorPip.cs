@@ -1,23 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-[RequireComponent(typeof(SpriteRenderer))]
+//[RequireComponent(typeof(SpriteRenderer))]
 public class ColorPip : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
+    private Image image;
 
     public GameColors.Colors color;
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+            image = GetComponent<Image>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        spriteRenderer.color = getColor(color);
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = getColor(color);
+        } else
+        {
+            image.color = getColor(color);
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

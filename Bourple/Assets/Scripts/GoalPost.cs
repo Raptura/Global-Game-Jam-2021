@@ -10,6 +10,8 @@ public class GoalPost : MonoBehaviour
     private string nextLevel;
     private SpriteRenderer sr;
     private ColorPip pip;
+    [SerializeField]
+    private ColorPip ui_pip;
     private Animator anim;
 
     private void Start()
@@ -19,6 +21,8 @@ public class GoalPost : MonoBehaviour
         colorUI = FindObjectOfType<ColorUI>();
         pip = transform.GetChild(0).GetComponent<ColorPip>();
         pip.color = goal;
+        ui_pip = GameObject.Find("UI_Pip").GetComponent<ColorPip>();
+        ui_pip.color = goal;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

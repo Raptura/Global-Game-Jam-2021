@@ -2167,6 +2167,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2777997923468429637, guid: 9a2ac0be86e5d524b89efe5dc73b9f85,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8861572201239067240, guid: 9a2ac0be86e5d524b89efe5dc73b9f85,
         type: 3}
       propertyPath: m_Pivot.x
@@ -29504,6 +29509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goal: 4
+  nextLevel: 
 --- !u!95 &3070205277466437217
 Animator:
   serializedVersion: 3
