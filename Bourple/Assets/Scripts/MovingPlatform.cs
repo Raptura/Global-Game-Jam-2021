@@ -6,8 +6,9 @@ public class MovingPlatform : MonoBehaviour
 {
     [SerializeField] private Transform platform, a, b;
     [SerializeField] private float speed;
+    [SerializeField] private float delayTime;
     private bool goingA;
-
+    private float lastDelay = Mathf.NegativeInfinity;
     private void Awake()
     {
         platform.position = a.position;
@@ -15,21 +16,27 @@ public class MovingPlatform : MonoBehaviour
 
     private void Update()
     {
-        if (goingA)
+        if (Time.time - lastDelay >= delayTime)
         {
-            Move(a);
-
-            if (Vector3.Distance(platform.position, a.position) < .1f)
+            if (goingA)
             {
-                goingA = false;
+                Move(a);
+
+                if (Vector3.Distance(platform.position, a.position) < .1f)
+                {
+                    goingA = false;
+                    lastDelay = Time.time;
+                }
             }
-        } else
-        {
-            Move(b);
-
-            if (Vector3.Distance(platform.position, b.position) < .1f)
+            else
             {
-                goingA = true;
+                Move(b);
+
+                if (Vector3.Distance(platform.position, b.position) < .1f)
+                {
+                    goingA = true;
+                    lastDelay = Time.time;
+                }
             }
         }
     }
