@@ -5,7 +5,8 @@ using UnityEngine.Events;
 public class CharacterController2D : MonoBehaviour
 {
 	[SerializeField] private float m_JumpForce = 400f;                          // Amount of force added when the player jumps.
-	[SerializeField] private float m_MoveSpeed = 10f;							// How fast the player horizontally moves.
+	[SerializeField] private float m_MoveSpeed = 10f;                           // How fast the player horizontally moves.
+	[SerializeField] private float pushingSlowness = 10;
 	[Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;			// Amount of maxSpeed applied to crouching movement. 1 = 100%
 	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
 	[SerializeField] private bool m_AirControl = false;							// Whether or not a player can steer while jumping;
@@ -17,7 +18,7 @@ public class CharacterController2D : MonoBehaviour
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
-	const float k_PushingRadius = .1f;
+	const float k_PushingRadius = .05f;
 	private bool m_Pushing;				// Whether or not the player is pushing a box.
 	const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
 	private Rigidbody2D m_Rigidbody2D;
@@ -159,7 +160,7 @@ public class CharacterController2D : MonoBehaviour
 		// When pushing a box halve the movement speed
 		if (m_Grounded && m_Pushing)
 		{
-			Vector3 targetVelocity = new Vector2(move * m_MoveSpeed / 2, m_Rigidbody2D.velocity.y);
+			Vector3 targetVelocity = new Vector2(move * m_MoveSpeed / pushingSlowness, m_Rigidbody2D.velocity.y);
 			// And then smoothing it out and applying it to the character
 			m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 		}
@@ -173,6 +174,7 @@ public class CharacterController2D : MonoBehaviour
 		}
 
 		animator.SetBool("OnGround", m_Grounded);
+		animator.SetBool("IsPushing", m_Pushing);
 	}
 
 
