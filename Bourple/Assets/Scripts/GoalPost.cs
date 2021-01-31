@@ -6,8 +6,6 @@ public class GoalPost : MonoBehaviour
     private ColorUI colorUI;
     [SerializeField]
     private GameColors.Colors goal;
-    [SerializeField]
-    private string nextLevel;
     [SerializeField] private SpriteRenderer fillSR;
     private ColorPip pip;
     private ColorPip ui_pip;
@@ -43,7 +41,7 @@ public class GoalPost : MonoBehaviour
 
     void GoToNextLevel()
     {
-        SceneManager.LoadScene(nextLevel);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public Color getColor(GameColors.Colors c)
