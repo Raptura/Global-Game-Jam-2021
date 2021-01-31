@@ -187,7 +187,7 @@ public class CharacterController2D : MonoBehaviour
 		}
 
 		animator.SetBool("OnGround", m_Grounded);
-		animator.SetBool("IsPushing", m_Pushing);
+		animator.SetBool("IsPushing", m_Pushing && animator.GetBool("IsRunning"));
 	}
 
 
