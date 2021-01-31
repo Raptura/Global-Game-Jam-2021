@@ -7,31 +7,7 @@ public class ColorPip : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
 
-    public enum ColorPipColor
-    {
-        Blue,
-        Yellow,
-        Red
-    }
-    public ColorPipColor pipColor;
-
-    public GameColors.Colors color
-    {
-        get
-        {
-            switch (pipColor)
-            {
-                case ColorPipColor.Blue:
-                    return GameColors.Colors.Blue;
-                case ColorPipColor.Yellow:
-                    return GameColors.Colors.Yellow;
-                case ColorPipColor.Red:
-                    return GameColors.Colors.Red;
-                default:
-                    return GameColors.Colors.NoColor;
-            }
-        }
-    }
+    public GameColors.Colors color;
 
     void Start()
     {
@@ -58,8 +34,7 @@ public class ColorPip : MonoBehaviour
         }
     }
 
-
-    private Color getColor(GameColors.Colors c)
+    public Color getColor(GameColors.Colors c)
     {
         switch (c)
         {
@@ -69,7 +44,12 @@ public class ColorPip : MonoBehaviour
                 return GameColors.red;
             case GameColors.Colors.Yellow:
                 return GameColors.yellow;
-            case GameColors.Colors.NoColor:
+            case GameColors.Colors.Purple:
+                return GameColors.purple;
+            case GameColors.Colors.Green:
+                return GameColors.green;
+            case GameColors.Colors.Orange:
+                return GameColors.orange;
             default:
                 return GameColors.charNoColor;
 
