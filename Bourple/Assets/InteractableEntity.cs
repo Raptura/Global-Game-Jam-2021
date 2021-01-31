@@ -19,6 +19,9 @@ public class InteractableEntity : MonoBehaviour
     private Tilemap tilemap;
 
     private TileBase[] outlineSet, regularSet;
+    [SerializeField]
+    private Sprite outlineSprite, enabledSprite;
+
 
     private ColorUI colorUI;
     private Collider2D col;
@@ -36,7 +39,10 @@ public class InteractableEntity : MonoBehaviour
         {
             if (_isInteractable != value)
             {
-                swapTiles();
+                if (entityType == EntityType.Tilemap)
+                    swapTiles();
+                else if (entityType == EntityType.Object)
+                    swapSprite();
             }
 
             _isInteractable = value;
@@ -130,6 +136,17 @@ public class InteractableEntity : MonoBehaviour
                 tilemap.SwapTile(regularSet[i], outlineSet[i]);
             else
                 tilemap.SwapTile(outlineSet[i], regularSet[i]);
+        }
+
+    }
+
+    private void swapSprite()
+    {
+        if (isInteractable)
+            spriteRenderer.sprite = outlineSprite;
+        else
+        {
+            spriteRenderer.sprite = enabledSprite;
         }
 
     }
