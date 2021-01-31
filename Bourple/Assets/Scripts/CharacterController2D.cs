@@ -151,14 +151,12 @@ public class CharacterController2D : MonoBehaviour
             if (Mathf.Abs(m_Rigidbody2D.velocity.x) > 0.1f)
             {
                 animator.SetBool("IsRunning", true);
-
-                if (!AudioManager.instance.run.isPlaying && m_Grounded)
-                    AudioManager.instance.run.Play();
             }
             else
             {
                 animator.SetBool("IsRunning", false);
-                AudioManager.instance.run.Stop();
+                if (AudioManager.instance != null)
+                    AudioManager.instance.run.Stop();
 
             }
 
@@ -203,6 +201,14 @@ public class CharacterController2D : MonoBehaviour
         if (!animator.GetBool("IsPushing") && AudioManager.instance.push.isPlaying)
         {
             AudioManager.instance.push.Stop();
+        }
+        if (animator.GetBool("IsRunning") && animator.GetBool("OnGround"))
+        {
+            if (!AudioManager.instance.run.isPlaying)
+                AudioManager.instance.run.Play();
+        } else
+        {
+            AudioManager.instance.run.Stop();
         }
     }
 
