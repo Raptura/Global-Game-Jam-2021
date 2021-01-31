@@ -107,13 +107,34 @@ public class ColorUI : MonoBehaviour
 
     public void updateColor(GameColors.Colors color)
     {
-        if (slot1Selected)
+
+        if (color == GameColors.Colors.Green)
         {
-            slot1Color = color;
+            slot1Color = GameColors.Colors.Blue;
+            slot2Color = GameColors.Colors.Yellow;
+        }
+        else if (color == GameColors.Colors.Purple)
+        {
+            slot1Color = GameColors.Colors.Red;
+            slot2Color = GameColors.Colors.Blue;
+        }
+        else if (color == GameColors.Colors.Orange)
+        {
+            slot1Color = GameColors.Colors.Yellow;
+            slot2Color = GameColors.Colors.Red;
         }
         else
         {
-            slot2Color = color;
+            {
+                if (slot1Selected)
+                {
+                    slot1Color = color;
+                }
+                else
+                {
+                    slot2Color = color;
+                }
+            }
         }
     }
 
