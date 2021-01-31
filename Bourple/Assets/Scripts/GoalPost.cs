@@ -36,7 +36,7 @@ public class GoalPost : MonoBehaviour
     {
         anim.Play("Goal_Happy");
         sr.color = getColor(goal);
-        colorUI.updateColor(GameColors.Colors.NoColor);
+        colorUI.clearColor();
     }
 
     void GoToNextLevel()

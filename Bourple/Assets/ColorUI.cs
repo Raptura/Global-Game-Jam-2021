@@ -160,17 +160,23 @@ public class ColorUI : MonoBehaviour
         }
         else
         {
+            if (slot1Selected)
             {
-                if (slot1Selected)
-                {
-                    slot1Color = color;
-                }
-                else
-                {
-                    slot2Color = color;
-                }
+                slot1Color = color;
             }
+            else
+            {
+                slot2Color = color;
+            }
+
         }
+    }
+
+    public void clearColor()
+    {
+
+        slot1Color = GameColors.Colors.NoColor;
+        slot2Color = GameColors.Colors.NoColor;
     }
 
     private Color getColor(GameColors.Colors c)

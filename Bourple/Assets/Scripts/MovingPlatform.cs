@@ -4,40 +4,55 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-    [SerializeField] private Transform platform, a, b;
+
+    [SerializeField] private PlatformObj platform;
+    [SerializeField] private Transform a, b;
     [SerializeField] private float speed;
+    [SerializeField] private float delayTime;
+    [SerializeField] public bool waitForPlayer;
+
     private bool goingA;
+    private float lastDelay = Mathf.NegativeInfinity;
+
 
     private void Awake()
     {
-        platform.position = a.position;
+        platform.transform.position = a.position;
+        platform.movingPlatform = this;
     }
 
     private void Update()
     {
-        if (goingA)
+        if (Time.time - lastDelay >= delayTime && !waitForPlayer)
         {
-            Move(a);
-
-            if (Vector3.Distance(platform.position, a.position) < .1f)
+            if (goingA)
             {
-                goingA = false;
+                Move(a);
+
+                if (Vector3.Distance(platform.transform.position, a.position) < .1f)
+                {
+                    goingA = false;
+                    lastDelay = Time.time;
+                }
             }
-        } else
-        {
-            Move(b);
-
-            if (Vector3.Distance(platform.position, b.position) < .1f)
+            else
             {
-                goingA = true;
+                Move(b);
+
+                if (Vector3.Distance(platform.transform.position, b.position) < .1f)
+                {
+                    goingA = true;
+                    lastDelay = Time.time;
+                }
             }
         }
     }
 
     void Move(Transform target)
     {
-        Vector3 direction = target.position - platform.position;
-        platform.Translate((direction / direction.magnitude) * Time.deltaTime * speed);
+        Vector3 direction = target.position - platform.transform.position;
+        platform.transform.Translate((direction / direction.magnitude) * Time.deltaTime * speed);
     }
+
 
 }
