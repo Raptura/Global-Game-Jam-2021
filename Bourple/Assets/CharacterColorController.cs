@@ -30,6 +30,7 @@ public class CharacterColorController : MonoBehaviour
     void DropColor()
     {
         colorUI.updateColor(GameColors.Colors.NoColor);
+        AudioManager.instance.drop.Play();
     }
 
     void SwapColorSlot()
