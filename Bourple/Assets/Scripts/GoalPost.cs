@@ -10,7 +10,6 @@ public class GoalPost : MonoBehaviour
     private string nextLevel;
     private SpriteRenderer sr;
     private ColorPip pip;
-    [SerializeField]
     private ColorPip ui_pip;
     private Animator anim;
 
