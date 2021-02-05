@@ -21,7 +21,7 @@ public class MovingPlatform : MonoBehaviour
         platform.movingPlatform = this;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (Time.time - lastDelay >= delayTime && !waitForPlayer)
         {
@@ -51,7 +51,7 @@ public class MovingPlatform : MonoBehaviour
     void Move(Transform target)
     {
         Vector3 direction = target.position - platform.transform.position;
-        platform.transform.Translate((direction / direction.magnitude) * Time.deltaTime * speed);
+        platform.transform.Translate((direction / direction.magnitude) * Time.fixedDeltaTime * speed);
     }
 
 
